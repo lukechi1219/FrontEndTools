@@ -1,0 +1,22 @@
+{
+  "name": "es-lint",
+  "version": "1.0.0",
+  "description": "ESLint .bat for windows",
+  "main": "",
+  "scripts": {
+    "test": "run_eslint.bat"
+  },
+  "author": "luke.chi@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
