@@ -1,5 +1,7 @@
 module.exports = {
-    "extends": "airbnb-base",
+//    'extends': 'standard',
+//    'extends': 'google',
+    'extends': 'airbnb-base',
 	env: {
 		browser: true,
 		jquery: true,
@@ -11,77 +13,175 @@ module.exports = {
 		JsCache: true,
 		PageConfig: true,
 	},
-	rules:{
-		"new-cap": "off",
-		"prefer-spread": "off", // ES6
-		"prefer-rest-params": "off", // ES6
-		"block-scoped-var": "off", // ? for(var i=0; i<splitResult.length; i++) {
-		"no-redeclare": "off", // ?
-
-//		"yoda": ["error", "never"],
-		"yoda": "off",
-		"quotes": "off",
+	rules: {
+		// 不適用 or 太嚴格, 所以 off
+		"quotes": "off", // ' or "
+		"vars-on-top": "off",
 		"no-undef": "off",
-		"wrap-iife": "off",
-		"no-mixed-spaces-and-tabs": "off",
-		"eol-last": "off",
-		"no-useless-escape": "off",
-		"spaced-comment": "off",
-//		"no-unused-vars": "off", // change to on
+		"no-use-before-define": "off",
+		"no-underscore-dangle": "off",
+		"func-names": "off",
+		// "linebreak-style": ["error", process.env.NODE_ENV === "prod" ? "unix" : "windows"],
+		"linebreak-style": "off", // LF vs CRLF
 
-		"space-infix-ops": "off", // change to on
-		"space-in-parens": "off", // change to on
-		"array-bracket-spacing": "off", // change to on
-		"block-spacing": "off", // change to on
-		"comma-spacing": "off", // change to on
-		"key-spacing": "off", // change to on
-		"keyword-spacing": "off", // change to on
-		"semi-spacing": "off", // change to on
-		"space-before-blocks": "off", // change to on
-		"no-multi-spaces": "off", // change to on
-		"no-extra-semi": "off", // change to on
-		"max-len": "off", // change to on
-		"no-alert": "off", // change to on ?
+//		"yoda": ["warn", "never", { "onlyEquality": true } ],
+		"yoda": "off",
+
+		// ----------------------
+		"camelcase": "error",
+		"new-parens": "error", // Missing "()" invoking a constructor
+		"no-console": "error",
+		"no-alert": "warn",
+		"no-sequences": "error",
+		"no-unused-expressions": "error",
+
+		// ----------------------
+		"one-var": "warn",
+		"one-var-declaration-per-line": "warn",
+		"no-unused-vars": "warn",
+		"no-shadow": "warn",
+		"semi": ["warn", "always"],
+		"no-extra-semi": "warn",
+
+		"new-cap": "warn",
+		"no-else-return": "warn",
+		"no-lonely-if": "warn",
+		"no-useless-return": "warn",
+		"no-useless-escape": "warn",
+
+		"dot-notation": "warn",
+		"no-array-constructor": "warn",
+		"operator-assignment": "warn",
+		"quote-props": ["warn", "as-needed", { "keywords": true, "unnecessary": false, "numbers": true }],
+
+		/*
+		 * 需要更嚴格的檢查的話, 可以把以下的 rule 打開
+		 */
+//		"no-redeclare": ["warn", { "builtinGlobals": true }], // for(var i=0; -> xx.forEach() IE9
+		"no-redeclare": "off",
+//		"no-plusplus": "warn",
+		"no-plusplus": "off",
+//		"guard-for-in": "warn",
+		"guard-for-in": "off",
+//		"wrap-iife": "warn",
+		"wrap-iife": "off",
+//		"no-param-reassign": "warn",
+		"no-param-reassign": "off",
+		// http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html
+//		"block-scoped-var": "warn", // Java has block-level scope, JavaScript has function-level scope.
+		"block-scoped-var": "off", // for(var i=0; i<splitResult.length; i++) {
+//		"no-script-url": "warn",
+		"no-script-url": "off",
+		"eqeqeq": "off", //"warn",
+//		"comma-dangle": "warn", //  IE8 and below will throw an error
+		"comma-dangle": "off",
+//		"padded-blocks": "warn", // 改善 code 可讀性
+		"padded-blocks": "off",
+
+		/*
+		 * often & or | is simply a mistyped && or ||
+		 * "no-bitwise": ["warn", { "allow": ["&"] }],
+		 */
+		"no-bitwise": "off",
+
+		/*
+		 * var num = parseInt("071"); // 57
+		 * var num = parseInt("071", 10); // 71
+		 */
+//		"radix": "warn",
+		"radix": "off",
+
+		// airbnb
+//		"no-continue": "warn",
+		"no-continue": "off",
+//		"no-prototype-builtins": "warn",
+		"no-prototype-builtins": "off",
+
+		// google ---------------------------------
+		"require-jsdoc": "off",
+		"valid-jsdoc": "off",
+
+		// ES6 ----------------------
+		"object-shorthand": ["warn", "never"], // ES6
+		"no-var": "off", // ES6, require let or const instead of var
+		"prefer-arrow-callback": "off", // ES6
+		"prefer-destructuring": "off", // ES6
+		"prefer-rest-params": "off", // ES6
+		"prefer-spread": "off", // ES6
+		"prefer-template": "off", // ES6
 
 		"no-restricted-globals": [
-			"error",
+			"warn",
+//			"isNaN", // https://github.com/airbnb/javascript#standard-library--isnan
 			{
-                "name": "top",
-                "message": "Use local parameter instead."
-            },
+				"name": "top",
+				"message": "Use window.top instead."
+			},
 			{
-                "name": "event",
-                "message": "Use local parameter instead."
-            },
+				"name": "location",
+				"message": "Use window.location instead."
+			},
 			{
-                "name": "error",
-                "message": "Use local parameter instead."
-            }
+				"name": "event",
+				"message": "Use local parameter instead."
+			},
+			{
+				"name": "error",
+				"message": "Use local parameter instead."
+			}
 		],
 
-//		"linebreak-style": ["error", process.env.NODE_ENV === 'prod' ? "unix" : "windows"],
-		"linebreak-style": "off",
-//		"indent": ["error", "tab", { "CallExpression": {"arguments": 1} }],
+		/*
+		 * * * * * * * * * * * * * * * * * *
+		 */
+		"no-restricted-syntax": [
+			"error",
+		//	"BreakStatement",
+			"DebuggerStatement",
+		//	"ForInStatement",
+			"LabeledStatement",
+			"WithStatement",
+		],
+
+		/*
+		 * * * * * * * * * * * * * * * * * *
+		 * following can be fixed by js-beautify
+		 */
+		"max-len": "off",
+		// tab
 		"indent": "off",
 		"no-tabs": "off",
-		"space-unary-ops": "off",
-		"space-before-function-paren": "off",
-		"func-names": ["error", "never"],
-		"padded-blocks": "off",
-		"no-var": "off",
-		"prefer-arrow-callback": "off",
-		"prefer-template": "off",
-		"prefer-destructuring": "off",
-		"eqeqeq": "off",
-		"comma-dangle": ["error", "never"],
-		"function-paren-newline": ["error", "consistent"],
-		"object-shorthand": ["error", "never"],
-		"quote-props": ["error", "as-needed", { "unnecessary": false }],
-		"vars-on-top": "off",
-		"no-plusplus": "off",
-		"no-bitwise": ["error", { "allow": ["&"] }],
+		"no-mixed-spaces-and-tabs": "off",
+
+		 // space
+		"no-multi-spaces": "off",
 		"no-trailing-spaces": "off",
-		"no-use-before-define": "off",
-		"radix": "off"
+		"space-in-parens": "off",
+		"space-infix-ops": "off",
+		"space-before-blocks": "off",
+		"space-before-function-paren": "off",
+		"space-unary-ops": "off",
+		"spaced-comment": "off",
+
+		// spacing
+		"array-bracket-spacing": "off",
+		"block-spacing": "off",
+		"comma-spacing": "off",
+		"key-spacing": "off",
+		"keyword-spacing": "off",
+		"object-curly-spacing": "off",
+		"semi-spacing": "off",
+
+		// newline
+//		"function-paren-newline": ["warn", "consistent"],
+		"function-paren-newline": "off",
+		"object-curly-newline": "off",
+		"object-property-newline": "warn",
+		"no-multiple-empty-lines": "warn",
+		"newline-per-chained-call": "off",
+
+		"brace-style": "off",
+		"eol-last": "off",
+		"operator-linebreak": "off",
 	},
 };
