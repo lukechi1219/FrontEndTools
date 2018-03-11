@@ -32,7 +32,10 @@ module.exports = {
 		"new-parens": "error", // Missing "()" invoking a constructor
 		"no-console": "error",
 		"no-alert": "warn",
+		"unicode-bom": "error",
+		"no-irregular-whitespace": "error",
 		"no-sequences": "error",
+		"no-unreachable": "error",
 		"no-unused-expressions": "error",
 
 		// ----------------------
