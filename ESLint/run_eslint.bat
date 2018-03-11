@@ -6,23 +6,8 @@ echo run "npm install"
 echo ================================
 
 rem NOTE: 可以用絕對路徑. 跟 ESLint 不用在同一個硬碟.
- set JS_FOLDER=D:\Work\Projects\YB_CashMPS\codebase\trunk\CashMPS\src\main\webapp\js\h5
-rem set JS_FOLDER=D:\Work\Projects\YB_CashMPS\codebase\trunk\CashMPS\src\main\webapp\js\frontLobby
-rem set JS_FOLDER=D:\Work\Projects\YB_CashMPS\codebase\trunk\CashMPS\src\main\webapp\js\guest
-rem set JS_FOLDER=D:\Work\Projects\YB_CashMPS\codebase\trunk\CashMPS\src\main\webapp\js\player
+set JS_FOLDER=D:\Work\Projects\YB_CashMPS\codebase\trunk\CashMPS\src\main\webapp\js\h5
 
-rem set JS_FOLDER=D:\Work\Projects\CitiXchange\codebase\trunk\CitiXchange-trunk\src\main\webapp\js\member
-
-rem set JS_FOLDER=C:\Users\Luke.Chi\Documents\Work\YB_CashMPS\codebase\trunk\CashMPS-trunk\src\main\webapp\h5
-rem set JS_FOLDER=C:\Users\Luke.Chi\Documents\Work\YB_CashMPS\codebase\trunk\CashMPS-trunk\src\main\webapp\js\frontLobby
-rem set JS_FOLDER=C:\Users\Luke.Chi\Documents\Work\YB_CashMPS\codebase\trunk\CashMPS-trunk\src\main\webapp\js\guest
-rem set JS_FOLDER=C:\Users\Luke.Chi\Documents\Work\YB_CashMPS\codebase\trunk\CashMPS-trunk\src\main\webapp\js\player
-
-rem set JS_FOLDER=C:\Users\Luke.Chi\Documents\Work\MPS\codebase\credit_mps-0.0.1-SNAPSHOT\src\main\webapp\js\player
-rem set JS_FOLDER=C:\Users\Luke.Chi\Documents\Work\MPS\codebase\credit_mps-0.0.1-SNAPSHOT\src\main\webapp\js\agent
-rem set JS_FOLDER=C:\Users\Luke.Chi\Documents\Work\MPS\codebase\credit_mps-0.0.1-SNAPSHOT\src\main\webapp\js\login
-rem set JS_FOLDER=C:\Users\Luke.Chi\Documents\Work\MPS\codebase\credit_mps-0.0.1-SNAPSHOT\src\main\webapp\js\admin
-rem set JS_FOLDER=C:\Users\Luke.Chi\Documents\Work\MPS\codebase\credit_mps-0.0.1-SNAPSHOT\src\main\webapp\js\const
 
 rem Please change ES_LINT_FOLDER to your folder location
 set ES_LINT_FOLDER=C:\Users\Luke.Chi\Documents\GitHub\FrontEndTools\ESLint

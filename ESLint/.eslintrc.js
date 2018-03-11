@@ -25,7 +25,7 @@ module.exports = {
 		"linebreak-style": "off", // LF vs CRLF
 
 //		"yoda": ["warn", "never", { "onlyEquality": true } ],
-		"yoda": "off",
+		"yoda": "off", // if (200 == status) {
 
 		// ----------------------
 		"camelcase": "error",
@@ -122,6 +122,7 @@ module.exports = {
 			},
 			{
 				"name": "location",
+				// https://stackoverflow.com/questions/1865837/whats-the-difference-between-window-location-and-window-location-replace
 				"message": "Use window.location instead."
 			},
 			{
