@@ -13,9 +13,9 @@ rem Please change ES_LINT_FOLDER to your folder location
 set ES_LINT_FOLDER=C:\Users\Luke.Chi\Documents\GitHub\FrontEndTools\ESLint
 
 rem Do NOT change this line. config file: .eslintrc.js
-set ES_LINT_COMMAND=node %ES_LINT_FOLDER%\node_modules\eslint\bin\eslint.js -c %ES_LINT_FOLDER%\.eslintrc.js --format %ES_LINT_FOLDER%\node_modules\eslint-friendly-formatter\index.js
+set ES_LINT_COMMAND=node %ES_LINT_FOLDER%\node_modules\eslint\bin\eslint.js -c %ES_LINT_FOLDER%\.eslintrc.js --ignore-path %ES_LINT_FOLDER%\.eslintignore.txt --format %ES_LINT_FOLDER%\node_modules\eslint-friendly-formatter\index.js
 rem Do NOT change this line. config file: .eslintrc.js
-set ES_LINT_COMMAND_HTML=node %ES_LINT_FOLDER%\node_modules\eslint\bin\eslint.js -c %ES_LINT_FOLDER%\.eslintrc.js -f html
+set ES_LINT_COMMAND_HTML=node %ES_LINT_FOLDER%\node_modules\eslint\bin\eslint.js -c %ES_LINT_FOLDER%\.eslintrc.js --ignore-path %ES_LINT_FOLDER%\.eslintignore.txt -f html
 
 rem set CHANGE_JS_FOLDER= n
 
