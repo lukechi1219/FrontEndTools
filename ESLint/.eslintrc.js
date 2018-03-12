@@ -185,6 +185,7 @@ module.exports = {
 		"keyword-spacing": "off",
 		"object-curly-spacing": "off",
 		"semi-spacing": "off",
+		"switch-colon-spacing": "off",
 
 		// newline
 		"function-paren-newline": ["warn", "consistent"],
@@ -194,6 +195,7 @@ module.exports = {
 		"newline-per-chained-call": "warn",
 
 		"brace-style": "off",
+		"comma-style": "off",
 		"operator-linebreak": "off",
 		"eol-last": "off",
 	},
