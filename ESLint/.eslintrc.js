@@ -1,7 +1,8 @@
 module.exports = {
-//    'extends': 'standard',
-//    'extends': 'google',
-    'extends': 'airbnb-base',
+//	"extends": "eslint:recommended",
+//	"extends": "standard",
+//	"extends": "google",
+	"extends": "airbnb-base",
 	env: {
 		browser: true,
 		jquery: true,
@@ -14,8 +15,9 @@ module.exports = {
 		PageConfig: true,
 	},
 	rules: {
-		// 不適用 or 太嚴格, 所以 off
-		"quotes": "off", // ' or "
+		// 下面這些 rulles 不適用 or 太嚴格, 所以 off
+		"strict": "off",
+		"quotes": "off", // ' vs "
 		"vars-on-top": "off",
 		"no-undef": "off",
 		"no-use-before-define": "off",
@@ -29,67 +31,70 @@ module.exports = {
 
 		// ----------------------
 		"camelcase": "error",
-		"new-parens": "error", // Missing "()" invoking a constructor
 		"no-console": "error",
 		"no-alert": "warn",
 		"unicode-bom": "error",
 		"no-irregular-whitespace": "error",
 		"no-sequences": "error",
 		"no-unreachable": "error",
-		"no-unused-expressions": "error",
 
 		// ----------------------
+		"no-shadow": "warn",
 		"one-var": "warn",
 		"one-var-declaration-per-line": "warn",
 		"no-unused-vars": "warn",
-		"no-shadow": "warn",
+		"no-unused-expressions": "warn",
 		"semi": ["warn", "always"],
 		"no-extra-semi": "warn",
 
 		"new-cap": "warn",
+		"new-parens": "warn", // Missing "()" invoking a constructor
 		"no-else-return": "warn",
 		"no-lonely-if": "warn",
 		"no-useless-return": "warn",
 		"no-useless-escape": "warn",
 
-		"dot-notation": "warn",
 		"no-array-constructor": "warn",
+		"no-fallthrough": "warn",
 		"operator-assignment": "warn",
 		"quote-props": ["warn", "as-needed", { "keywords": true, "unnecessary": false, "numbers": true }],
 
 		/*
 		 * 需要更嚴格的檢查的話, 可以把以下的 rule 打開
 		 */
-//		"no-redeclare": ["warn", { "builtinGlobals": true }], // for(var i=0; -> xx.forEach() IE9
-		"no-redeclare": "off",
-//		"no-plusplus": "warn",
-		"no-plusplus": "off",
-//		"guard-for-in": "warn",
-		"guard-for-in": "off",
-//		"wrap-iife": "warn",
-		"wrap-iife": "off",
-//		"no-param-reassign": "warn",
-		"no-param-reassign": "off",
 		// http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html
 //		"block-scoped-var": "warn", // Java has block-level scope, JavaScript has function-level scope.
 		"block-scoped-var": "off", // for(var i=0; i<splitResult.length; i++) {
-//		"no-script-url": "warn",
+//		"guard-for-in": "warn",
+		"guard-for-in": "off",
+//		"eqeqeq": "warn",
+		"eqeqeq": "off",
+//		"no-script-url": "warn", // Using javascript: URLs is considered by some as a form of eval.
 		"no-script-url": "off",
-		"eqeqeq": "off", //"warn",
+//		"no-redeclare": ["warn", { "builtinGlobals": true }], // for(var i=0; -> xx.forEach() IE9
+		"no-redeclare": "off",
+//		"no-param-reassign": "warn",
+		"no-param-reassign": "off",
+//		"no-plusplus": "warn",
+		"no-plusplus": "off",
 //		"comma-dangle": "warn", //  IE8 and below will throw an error
 		"comma-dangle": "off",
+//		"dot-notation": "warn",
+		"dot-notation": "off",
 //		"padded-blocks": "warn", // 改善 code 可讀性
 		"padded-blocks": "off",
+//		"wrap-iife": "warn",
+		"wrap-iife": "off",
 
 		/*
 		 * often & or | is simply a mistyped && or ||
-		 * "no-bitwise": ["warn", { "allow": ["&"] }],
 		 */
+//		"no-bitwise": ["warn", { "allow": ["&"] }],
 		"no-bitwise": "off",
 
 		/*
-		 * var num = parseInt("071"); // 57
-		 * var num = parseInt("071", 10); // 71
+		 * var num = parseInt("071"); // return 57
+		 * var num = parseInt("071", 10); // return 71
 		 */
 //		"radix": "warn",
 		"radix": "off",
@@ -105,8 +110,8 @@ module.exports = {
 		"valid-jsdoc": "off",
 
 		// ES6 ----------------------
-		"object-shorthand": ["warn", "never"], // ES6
 		"no-var": "off", // ES6, require let or const instead of var
+		"object-shorthand": ["warn", "never"], // ES6
 		"prefer-arrow-callback": "off", // ES6
 		"prefer-destructuring": "off", // ES6
 		"prefer-rest-params": "off", // ES6
@@ -115,7 +120,7 @@ module.exports = {
 
 		"no-restricted-globals": [
 			"warn",
-//			"isNaN", // https://github.com/airbnb/javascript#standard-library--isnan
+			"NaN",
 			{
 				"name": "top",
 				"message": "Use window.top instead."
@@ -134,6 +139,8 @@ module.exports = {
 				"message": "Use local parameter instead."
 			}
 		],
+
+		"no-restricted-properties": "warn",
 
 		/*
 		 * * * * * * * * * * * * * * * * * *
@@ -166,26 +173,28 @@ module.exports = {
 		"space-before-function-paren": "off",
 		"space-unary-ops": "off",
 		"spaced-comment": "off",
+		"no-spaced-func": "off",
 
 		// spacing
 		"array-bracket-spacing": "off",
 		"block-spacing": "off",
 		"comma-spacing": "off",
+		"computed-property-spacing": "off",
+		"func-call-spacing": "off",
 		"key-spacing": "off",
 		"keyword-spacing": "off",
 		"object-curly-spacing": "off",
 		"semi-spacing": "off",
 
 		// newline
-//		"function-paren-newline": ["warn", "consistent"],
-		"function-paren-newline": "off",
-		"object-curly-newline": "off",
+		"function-paren-newline": ["warn", "consistent"],
+		"object-curly-newline": "warn",
 		"object-property-newline": "warn",
 		"no-multiple-empty-lines": "warn",
-		"newline-per-chained-call": "off",
+		"newline-per-chained-call": "warn",
 
 		"brace-style": "off",
-		"eol-last": "off",
 		"operator-linebreak": "off",
+		"eol-last": "off",
 	},
 };
